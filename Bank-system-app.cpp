@@ -1,6 +1,7 @@
 #include <iostream>
 using namespace std;
-string username, address, gender, birth_yr, check_username, password, check_password, phone_number;
+string username, address, gender, birth_yr, check_username,
+    password, check_password, phone_number;
 int ipt_num;
 double account_bal, new_bal, draw_bal;
 void wlc_page();
@@ -96,7 +97,7 @@ void show_data()
     cout << "enter the number 1 to show ur account data \n";
     cout << "enter the number 2 to add new balance\n";
     cout << "enter the number 3 to withdraw from ur balance \n";
-    cout << "enter the number 0 to logout and exit";
+    cout << "enter the number 0 to logout and exit\n";
     cin >> ipt_num;
     if (ipt_num == 1)
     {
@@ -110,7 +111,7 @@ void show_data()
         cin >> ipt_num;
         if (ipt_num == 0)
         {
-            cout << "Goodbye";
+            cout << "Goodbye\n";
         }
         else if (ipt_num == 1)
         {
@@ -118,7 +119,7 @@ void show_data()
         }
         else
         {
-            cout << "please enter a valid number";
+            cout << "please enter a valid number\n";
             show_data();
         }
     }
