@@ -1,12 +1,11 @@
 #include <iostream>
 using namespace std;
-string username, address, gender, birth_yr;
-int phone_number, password, ipt_num;
-int check_username, check_password;
+string username, address, gender, birth_yr, check_username, password, check_password, phone_number;
+int ipt_num;
 double account_bal, new_bal, draw_bal;
 void wlc_page();
 void registration();
-// void login();
+void login();
 void show_data();
 int main()
 {
@@ -17,17 +16,10 @@ void wlc_page()
 {
 
     cout << "welcome to the bank \n";
-    cout << "Enter 1 to login \n"
-            "Enter 2 to register \n"
+    cout << "Enter 1 to register \n"
             "Enter 0 to exit the program\n";
     cin >> ipt_num;
     if (ipt_num == 1)
-    {
-        // login();
-        cout << "m4 4a8ala y5oia e5tar 7aga tanya\n"; // login function doesnt work yet :'(
-        wlc_page();
-    }
-    else if (ipt_num == 2)
     {
         registration();
     }
@@ -44,7 +36,7 @@ void wlc_page()
 void registration()
 {
 
-    cout << "please enter ur name \n"; // if username is not a string it exits (same for other functions)
+    cout << "please enter ur name \n";
     cin >> username;
     cout << "please enter ur phone number \n";
     cin >> phone_number;
@@ -57,9 +49,9 @@ void registration()
     cout << "please enter ur birth year \n";
     cin >> birth_yr;
     cout << "please enter ur account balance \n";
-    cin >> account_bal;
+    cin >> account_bal; // if the account balance(and any new balance and the withdraw too) is not a number or double it enters an infinity loop in all the app
     cout << "To exit enter 0\n"
-            "To show ur data enter 1\n";
+            "To login enter 1\n";
     cin >> ipt_num;
     if (ipt_num == 0)
     {
@@ -67,34 +59,37 @@ void registration()
     }
     else if (ipt_num == 1)
     {
-        show_data();
+        login();
     }
 }
-/*void login()
+void login()
 {
 
-    cout << "please enter ur Username";
+    cout << "please enter ur Username\n";
     cin >> check_username;
-    cout << "please enter ur Password";
+    cout << "please enter ur Password\n";
     cin >> check_password;
     if (check_username == username && check_password == password)
     {
-        cout << "welcome back";
+        cout << "welcome back\n";
         show_data();
     }
-    else
-        cout << "wrong password or username";
-    cout << "To exit enter 0";
-    cin >> ipt_num;
-    if (ipt_num == 0)
+    else if (check_username != username || check_password != password)
     {
-        cout << "Goodbye";
+        cout << "wrong password or username\n"
+                "To exit enter 0\n"
+                "To login enter 1\n";
+        cin >> ipt_num;
+        if (ipt_num == 0)
+        {
+            cout << "Goodbye\n";
+        }
+        else if (ipt_num == 1)
+        {
+            login();
+        }
     }
-    else
-    {
-        login();
-    }
-}*/
+}
 void show_data()
 {
 
